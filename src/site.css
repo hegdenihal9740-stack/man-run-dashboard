@@ -820,3 +820,58 @@ button.text-link:hover{color:#d36d59}
 .tilt-wrap{height:100%}
 .tilt-wrap>.industry-card,.tilt-wrap>.resource-card{height:100%}
 @media(max-width:600px){.dash-live{display:none}.dash-steps b{min-width:0}.dash-steps{font-size:9px;gap:6px}}
+
+/* ===== Capabilities theme: aurora night ===== */
+@property --mod-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+.modules-section{--mod-accent:#bf9bff;position:relative;overflow:hidden;isolation:isolate;color:#f6eefc;background:radial-gradient(ellipse at 8% 0%,#2a1838 0,transparent 50%),linear-gradient(180deg,#130d1c,#0a0710)}
+.modules-section .section-heading h2{color:#fff6ee}
+.modules-section .muted-heading{color:#8f7f9e}
+.modules-section .section-heading p{color:#b3a4c0}
+.modules-section .eyebrow{color:#c9b3dc}
+.modules-section .eyebrow-dot{background:var(--mod-accent);box-shadow:0 0 12px var(--mod-accent);transition:background-color .6s,box-shadow .6s}
+.modules-aurora{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.modules-aurora i{position:absolute;border-radius:50%;filter:blur(90px);transition:background-color .9s ease}
+.modules-aurora i:nth-child(1){width:560px;height:560px;right:-140px;top:6%;opacity:.32;background-color:var(--mod-accent);animation:mod-aurora-a 16s ease-in-out infinite}
+.modules-aurora i:nth-child(2){width:420px;height:420px;left:-140px;bottom:-120px;opacity:.16;background-color:#ff967c;animation:mod-aurora-b 21s ease-in-out infinite}
+.modules-grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 70% 40%,#000 0,transparent 70%);animation:mod-grid-drift 24s linear infinite}
+.modules-section .module-list{border-top-color:#ffffff14}
+.modules-section .module-row{position:relative;color:#e9dff0;border-bottom:1px solid #ffffff10;background:transparent}
+.modules-section .module-row:hover{background:#ffffff07}
+.modules-section .module-row.selected{background:linear-gradient(90deg,color-mix(in oklab,var(--mod-accent) 20%,transparent),transparent 85%);border-color:#ffffff10}
+.modules-section .module-row.selected .module-title{color:#fff}
+.modules-section .module-title small{color:#9c8eaa}
+.modules-section .module-num{color:#7f7090;transition:color .3s}
+.modules-section .module-row.selected .module-num,.modules-section .module-row.selected .module-arrow,.modules-section .module-row:hover .module-arrow{color:var(--mod-accent)}
+.module-active-bar{position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--mod-accent);box-shadow:0 0 14px var(--mod-accent)}
+.modules-section .module-icon{border:1px solid #ffffff14;background:#ffffff0a;color:#ffc9a8;transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s,background-color .4s}
+.modules-section .module-icon.cyan{color:#7ff0e4}
+.modules-section .module-icon.violet{color:#cdb4ff}
+.modules-section .module-icon.green{color:#8ff0bd}
+.modules-section .module-icon.orange{color:#ffc08a}
+.modules-section .module-icon.blue{color:#a9c2ff}
+.modules-section .module-row.selected .module-icon{background:#ffffff14;transform:scale(1.1) rotate(-8deg);box-shadow:0 8px 24px color-mix(in oklab,var(--mod-accent) 45%,transparent)}
+.modules-section .module-feature-stage{position:relative;border-radius:24px}
+.modules-section .module-feature-stage::before,.modules-section .module-feature-stage::after{content:"";position:absolute;inset:-1.5px;z-index:0;border-radius:24px;background:conic-gradient(from var(--mod-angle),transparent 0 52%,var(--mod-accent) 70%,#ffd278 80%,transparent 92%);animation:mod-border-spin 6s linear infinite;pointer-events:none}
+.modules-section .module-feature-stage::after{inset:-6px;filter:blur(22px);opacity:.45}
+.modules-section .module-feature-stage>.module-feature{position:relative;z-index:1}
+.modules-section .module-feature{--feature-glow:color-mix(in oklab,var(--mod-accent) 42%,transparent);--feature-line:var(--mod-accent);border-color:#ffffff14;background:radial-gradient(ellipse at 86% 16%,var(--feature-glow),transparent 45%),linear-gradient(145deg,#1b1328,#0c0913);color:#f6eefc}
+.modules-section .module-feature .feature-number{color:var(--mod-accent)}
+.modules-section .module-feature .feature-number::before{background:var(--mod-accent);box-shadow:0 0 12px var(--mod-accent)}
+.modules-section .module-feature h3.feature-title{animation:none;color:#fff6ee;perspective:600px}
+.modules-section .module-feature p{color:#c3b6cf}
+.module-feature>.feature-particles{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.feature-particles i{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:var(--mod-accent,#bf9bff);box-shadow:0 0 10px var(--mod-accent,#bf9bff);opacity:0;animation:mod-particle 7s linear infinite}
+.feature-particles i:nth-child(1){left:12%;animation-delay:0s}
+.feature-particles i:nth-child(2){left:26%;animation-delay:-2.4s;width:3px;height:3px}
+.feature-particles i:nth-child(3){left:41%;animation-delay:-4.8s}
+.feature-particles i:nth-child(4){left:55%;animation-delay:-1.2s;width:2px;height:2px}
+.feature-particles i:nth-child(5){left:68%;animation-delay:-3.6s}
+.feature-particles i:nth-child(6){left:79%;animation-delay:-6s;width:3px;height:3px}
+.feature-particles i:nth-child(7){left:88%;animation-delay:-5.2s}
+.feature-particles i:nth-child(8){left:34%;animation-delay:-0.6s;width:2px;height:2px}
+@keyframes mod-border-spin{to{--mod-angle:360deg}}
+@keyframes mod-aurora-a{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-80px,60px) scale(1.15)}}
+@keyframes mod-aurora-b{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(90px,-50px) scale(1.2)}}
+@keyframes mod-grid-drift{to{background-position:64px 64px}}
+@keyframes mod-particle{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:.9}100%{transform:translateY(-480px) scale(1.2);opacity:0}}
+@media(prefers-reduced-motion:reduce){.modules-aurora i,.modules-grid,.feature-particles i,.modules-section .module-feature-stage::before,.modules-section .module-feature-stage::after{animation:none}}
