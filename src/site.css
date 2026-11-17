@@ -802,9 +802,8 @@ button.text-link:hover{color:#d36d59}
 /* ===== Scroll & 3D motion layer ===== */
 .scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;transform-origin:0 50%;background:linear-gradient(90deg,#ffd278,#ff967c 50%,#be91ff);box-shadow:0 0 12px #ff967c88;pointer-events:none}
 .hero-visual-parallax{position:relative;will-change:transform}
-.platform-pin{position:relative}
-.platform-pin.is-pinned .platform-section{position:sticky;top:0;height:100vh;height:100svh;min-height:0;padding-top:88px;padding-bottom:18px;overflow:hidden}
-.dash-stage{will-change:transform}
+.dash-pin{position:relative}
+.dash-stage{position:sticky;top:max(92px,calc(50vh - 200px));top:max(92px,calc(50svh - 200px));z-index:2;will-change:transform}
 .dash-top{position:relative}
 .dash-steps{display:flex;align-items:center;gap:10px;font-size:10px;color:#6c5f68;perspective:400px}
 .dash-steps b{display:inline-block;min-width:80px;font-weight:700;color:#3a2c3c}

@@ -118,26 +118,20 @@ function Hero(){
 }
 function Ticker(){return <div className="ticker"><div className="ticker-track">{['Real-time sync','AI insights','Cloud native','Bank-grade security','Multi-currency','Open API','24/7 support','Mobile first','Custom workflows','Smart automation','Global scale','Zero downtime','Real-time sync','AI insights','Cloud native','Bank-grade security','Multi-currency','Open API','24/7 support','Mobile first','Custom workflows','Smart automation','Global scale','Zero downtime'].map((x,i)=><span key={i}><i>✳</i>{x}</span>)}</div></div>}
 function Platform(){
- const pinRef=React.useRef(null),stageRef=React.useRef(null)
- const pin=useMedia('(min-width:761px) and (min-height:700px)')
+ const pinRef=React.useRef(null)
  const n=dashTabs.length
  const [active,setActive]=useState(0)
- const {scrollYProgress}=useScroll({target:pinRef,offset:['start start','end end']})
+ const {scrollYProgress}=useScroll({target:pinRef,offset:['start 15%','end 85%']})
  const smooth=useSpring(scrollYProgress,{stiffness:120,damping:26,mass:.3})
- useMotionValueEvent(scrollYProgress,'change',v=>{if(!pin)return;const i=Math.max(0,Math.min(n-1,Math.floor(v*n)));setActive(prev=>prev===i?prev:i)})
- const {scrollYProgress:enter}=useScroll({target:pinRef,offset:['start end','start start']})
+ useMotionValueEvent(scrollYProgress,'change',v=>{const i=Math.max(0,Math.min(n-1,Math.floor(v*n)));setActive(prev=>prev===i?prev:i)})
+ const {scrollYProgress:enter}=useScroll({target:pinRef,offset:['start end','start 30%']})
  const enterS=useSpring(enter,{stiffness:80,damping:20,mass:.5})
- const rotateX=useTransform(enterS,[0,1],[32,0]),scale=useTransform(enterS,[0,1],[.82,1]),y=useTransform(enterS,[0,1],[120,0])
+ const rotateX=useTransform(enterS,[0,1],[32,0]),scale=useTransform(enterS,[0,1],[.84,1]),y=useTransform(enterS,[0,1],[110,0])
  const rotateY=useTransform(smooth,[0,.5,1],[-6,0,6])
- const tabProgress=useSpring(1/n,{stiffness:120,damping:24})
- React.useEffect(()=>{if(!pin)tabProgress.set((active+1)/n)},[active,pin])
- const inView=useInView(stageRef,{amount:.5})
- React.useEffect(()=>{if(pin||!inView)return;const t=window.setInterval(()=>setActive(a=>(a+1)%n),3600);return()=>window.clearInterval(t)},[pin,inView,n])
- const goTo=i=>{if(pin&&pinRef.current){const el=pinRef.current;const top=el.getBoundingClientRect().top+window.scrollY;const range=el.offsetHeight-window.innerHeight;window.scrollTo({top:top+range*((i+.5)/n),behavior:'smooth'})}else setActive(i)}
- return <div ref={pinRef} className={`platform-pin ${pin?'is-pinned':''}`} style={pin?{height:`${n*70+100}vh`}:undefined}>
- <section className="section platform-section" id="platform"><div className="container"><div className="platform-intro"><SectionHeading eyebrow="THE PLATFORM" title={<>The whole business.<br/><span className="gradient-text">Finally in sync.</span></>} copy="Every module speaks the same language. Real-time information connects sales, inventory, finance and operations without a separate integration to maintain."/></div><motion.div ref={stageRef} className="dash-stage" style={{rotateX,rotateY:pin?rotateY:0,scale,y,transformPerspective:1600,transformOrigin:'50% 0%'}}><DashboardMock activeTab={active} onTab={goTo} progress={pin?smooth:tabProgress}/></motion.div>
+ const goTo=i=>{const el=pinRef.current;if(!el)return;const vh=window.innerHeight;const top=el.getBoundingClientRect().top+window.scrollY-vh*.15;const range=el.offsetHeight-vh*.7;window.scrollTo({top:top+range*((i+.5)/n),behavior:'smooth'})}
+ return <section className="section platform-section" id="platform"><div className="container"><div className="platform-intro"><SectionHeading eyebrow="THE PLATFORM" title={<>The whole business.<br/><span className="gradient-text">Finally in sync.</span></>} copy="Every module speaks the same language. Real-time information connects sales, inventory, finance and operations without a separate integration to maintain."/></div><div ref={pinRef} className="dash-pin"><motion.div className="dash-stage" style={{rotateX,rotateY,scale,y,transformPerspective:1600,transformOrigin:'50% 0%'}}><DashboardMock activeTab={active} onTab={goTo} progress={smooth}/></motion.div><div className="dash-pin-spacer" style={{height:`${n*55}vh`}} aria-hidden="true"/></div>
   <div className="platform-bottom"><div><span className="mini-kicker">ONE CONNECTED EXPERIENCE</span><h3>Every team sees<br/>the bigger picture.</h3></div><p>When your business runs on a shared foundation, information moves with your work. Give teams the context they need to make better decisions.</p><a href="#modules" className="text-link">Explore all modules <ArrowRight size={16}/></a></div>
- </div></section></div>
+ </div></section>
 }
 function Modules(){
  const [active,setActive]=useState(0)
