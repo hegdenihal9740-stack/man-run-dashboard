@@ -875,3 +875,17 @@ button.text-link:hover{color:#d36d59}
 @keyframes mod-grid-drift{to{background-position:64px 64px}}
 @keyframes mod-particle{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:.9}100%{transform:translateY(-480px) scale(1.2);opacity:0}}
 @media(prefers-reduced-motion:reduce){.modules-aurora i,.modules-grid,.feature-particles i,.modules-section .module-feature-stage::before,.modules-section .module-feature-stage::after{animation:none}}
+
+/* ===== Readability on dark sections ===== */
+.brand{color:#fff6ee}
+.brand-light{color:#c6b5ce}
+.nav>a{color:#cbbdd6}
+.nav>a:hover{color:#ffd278}
+.process-section,.contact-section,.footer{color:#f6eefc}
+.process-section .section-heading h2,.process-step h3,.contact-copy h2,.contact-form h3{color:#fff6ee}
+.process-section .section-heading p{color:#b3a4c0}
+.process-step p{color:#b8aac4}
+.process-top>span{border-color:#8f6fb8;color:#e2cfff}
+.process-step{border-top-color:#ffffff1f}
+.process-connector{background:linear-gradient(90deg,#ff967c,transparent)}
+.contact-form label{color:#c9bcd4}
